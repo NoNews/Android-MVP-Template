@@ -20,6 +20,15 @@ android {
 }
 
 dependencies {
+
+
+    //moxy mvp
+    compile 'com.arello-mobile:moxy:1.1.1'
+    provided 'com.arello-mobile:moxy-compiler:1.1.1'
+    compile 'com.arello-mobile:moxy-app-compat:1.1.1'
+
+
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
