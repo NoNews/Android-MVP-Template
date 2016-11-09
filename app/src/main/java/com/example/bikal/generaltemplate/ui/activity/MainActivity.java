@@ -3,6 +3,8 @@ package com.example.bikal.generaltemplate.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.bikal.generaltemplate.R;
@@ -31,8 +33,6 @@ public class MainActivity extends BaseActivity implements MainView {
         setContentView(LAYOUT);
         ButterKnife.bind(this);
     }
-
-
 
 
 
