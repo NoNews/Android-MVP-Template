@@ -1,7 +1,10 @@
 package com.example.bikal.generaltemplate.dagger.components;
 
 import com.example.bikal.generaltemplate.App;
+import com.example.bikal.generaltemplate.api.RestApi;
 import com.example.bikal.generaltemplate.dagger.modules.AppModule;
+import com.example.bikal.generaltemplate.ui.activity.BaseActivity;
+import com.example.bikal.generaltemplate.ui.fragments.BaseFragment;
 
 import javax.inject.Singleton;
 
@@ -19,4 +22,7 @@ import dagger.Component;
 
 public interface AppComponent {
     void inject(App app);
+    void inject(RestApi restApi);
+    void inject(BaseActivity baseActivity);
+    void inject(BaseFragment baseFragment);
 }

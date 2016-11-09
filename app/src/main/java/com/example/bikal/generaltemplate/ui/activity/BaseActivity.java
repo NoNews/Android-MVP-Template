@@ -3,6 +3,7 @@ package com.example.bikal.generaltemplate.ui.activity;
 import android.os.Bundle;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
+import com.example.bikal.generaltemplate.App;
 import com.example.bikal.generaltemplate.api.RestApi;
 
 import javax.inject.Inject;
@@ -23,6 +24,15 @@ public class BaseActivity extends MvpAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        injectDagger();
+        setupTag();
+    }
+
+    private void setupTag() {
         TAG = this.getClass().getSimpleName();
+    }
+
+    private void injectDagger() {
+        ((App) getApplication()).getAppComponent().inject(this);
     }
 }

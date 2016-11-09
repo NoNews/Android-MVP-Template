@@ -27,18 +27,13 @@ public class RestApi {
 //                .authenticator(authenticator)
 //                .build();
 //
-
-
+        
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Consts.Url.API_URL)
 //                .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 
-
-
         testEndpoint = retrofit.create(TestEndpoint.class);
     }
-
-
 }

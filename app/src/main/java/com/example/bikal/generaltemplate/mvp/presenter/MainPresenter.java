@@ -7,4 +7,15 @@ import com.example.bikal.generaltemplate.mvp.view.MainView;
 @InjectViewState
 public class MainPresenter extends MvpPresenter<MainView> {
 
+
+
+    public MainPresenter(){
+
+    }
+
+
+    public void setText(String text){
+        getViewState().setText(text);
+    }
+
 }
