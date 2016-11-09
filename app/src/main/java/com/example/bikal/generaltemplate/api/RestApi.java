@@ -1,7 +1,7 @@
 package com.example.bikal.generaltemplate.api;
 
 import com.example.bikal.generaltemplate.api.endpoints.TestEndpoint;
-import com.example.bikal.generaltemplate.Consts;
+import com.example.bikal.generaltemplate.Const;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -27,7 +27,7 @@ public class RestApi {
 //                .build();
 //
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(Consts.Url.API_URL)
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Const.Url.API_URL)
 //                .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())

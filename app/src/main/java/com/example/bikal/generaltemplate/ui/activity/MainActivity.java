@@ -3,17 +3,14 @@ package com.example.bikal.generaltemplate.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.example.bikal.generaltemplate.R;
-import com.example.bikal.generaltemplate.mvp.view.MainView;
-import com.example.bikal.generaltemplate.mvp.presenter.MainPresenter;
+import com.example.bikal.generaltemplate.ui.mvp.view.MainView;
+import com.example.bikal.generaltemplate.ui.mvp.presenter.MainPresenter;
 
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
-
-import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

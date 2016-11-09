@@ -1,4 +1,4 @@
-package com.example.bikal.generaltemplate.mvp.view;
+package com.example.bikal.generaltemplate.ui.mvp.view;
 
 import com.arellomobile.mvp.MvpView;
 
