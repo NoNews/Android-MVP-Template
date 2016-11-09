@@ -1,6 +1,7 @@
 package com.example.bikal.generaltemplate.ui.activity;
 
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.example.bikal.generaltemplate.App;
@@ -46,5 +47,14 @@ public class BaseActivity extends MvpAppCompatActivity {
 
     protected void stopBus(){
         EventBus.getDefault().unregister(this);
+    }
+
+    protected void hideKeyboard() {
+        try {
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

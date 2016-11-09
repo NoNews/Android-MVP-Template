@@ -1,6 +1,7 @@
 package com.example.bikal.generaltemplate.ui.fragments;
 
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.example.bikal.generaltemplate.App;
@@ -11,6 +12,8 @@ import org.greenrobot.eventbus.EventBus;
 
 import javax.inject.Inject;
 
+import static android.content.Context.INPUT_METHOD_SERVICE;
+
 /**
  * Created by Alex Bykov on 09.11.2016.
  * You can contact me at: me@alexbykov.ru.
@@ -18,7 +21,7 @@ import javax.inject.Inject;
 
 public class BaseFragment extends MvpAppCompatFragment {
 
-    protected   String TAG;
+    protected String TAG;
 
     //@formatter:off
     @Inject protected RestApi restApi;
@@ -41,11 +44,22 @@ public class BaseFragment extends MvpAppCompatFragment {
         ((App) getActivity().getApplication()).getAppComponent().inject(this);
     }
 
-    protected void startBus(){
+    protected void startBus() {
         EventBus.getDefault().register(this);
     }
 
-    protected void stopBus(){
+    protected void stopBus() {
         EventBus.getDefault().unregister(this);
     }
+
+    protected void hideKeyboard() {
+        try {
+            InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
