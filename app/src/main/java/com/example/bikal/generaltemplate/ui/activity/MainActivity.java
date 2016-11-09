@@ -14,7 +14,9 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 public class MainActivity extends BaseActivity implements MainView {
 
     public static final String TAG = "MainActivity";
+    //@formatter:off
     @InjectPresenter MainPresenter mMainPresenter;
+    //@formatter:on
 
 
     @Override
