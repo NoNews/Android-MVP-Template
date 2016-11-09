@@ -6,6 +6,7 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.example.bikal.generaltemplate.App;
 import com.example.bikal.generaltemplate.api.RestApi;
 import com.example.bikal.generaltemplate.utils.EventMessage;
+import com.example.bikal.generaltemplate.utils.PreferenceHelper;
 
 
 import org.greenrobot.eventbus.EventBus;
@@ -21,6 +22,7 @@ public class BaseActivity extends MvpAppCompatActivity {
 
     //@formatter:off
     @Inject protected RestApi restApi;
+    @Inject protected PreferenceHelper preferenceHelper;
     //@formatter:on
     protected String TAG;
 

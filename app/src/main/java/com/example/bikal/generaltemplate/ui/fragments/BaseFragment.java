@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.example.bikal.generaltemplate.App;
 import com.example.bikal.generaltemplate.api.RestApi;
+import com.example.bikal.generaltemplate.utils.PreferenceHelper;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -21,6 +22,7 @@ public class BaseFragment extends MvpAppCompatFragment {
 
     //@formatter:off
     @Inject protected RestApi restApi;
+    @Inject protected PreferenceHelper preferenceHelper;
     //@formatter:on
 
     @Override

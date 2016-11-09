@@ -1,4 +1,4 @@
-package com.example.bikal.generaltemplate.utils;
+package com.example.bikal.generaltemplate;
 
 /**
  * Created by Alex Bykov on 09.11.2016.

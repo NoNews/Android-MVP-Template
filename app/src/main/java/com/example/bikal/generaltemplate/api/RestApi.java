@@ -1,9 +1,8 @@
 package com.example.bikal.generaltemplate.api;
 
 import com.example.bikal.generaltemplate.api.endpoints.TestEndpoint;
-import com.example.bikal.generaltemplate.utils.Consts;
+import com.example.bikal.generaltemplate.Consts;
 
-import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;

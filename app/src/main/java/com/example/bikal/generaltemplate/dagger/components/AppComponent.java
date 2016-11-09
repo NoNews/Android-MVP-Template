@@ -22,7 +22,6 @@ import dagger.Component;
 
 public interface AppComponent {
     void inject(App app);
-    void inject(RestApi restApi);
     void inject(BaseActivity baseActivity);
     void inject(BaseFragment baseFragment);
 }
