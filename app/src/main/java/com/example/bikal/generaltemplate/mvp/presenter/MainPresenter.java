@@ -13,9 +13,4 @@ public class MainPresenter extends MvpPresenter<MainView> {
 
     }
 
-
-    public void setText(String text){
-        getViewState().setText(text);
-    }
-
 }

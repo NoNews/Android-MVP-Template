@@ -12,6 +12,8 @@ import com.example.bikal.generaltemplate.mvp.presenter.MainPresenter;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
+import org.greenrobot.eventbus.EventBus;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -30,14 +32,11 @@ public class MainActivity extends BaseActivity implements MainView {
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
         ButterKnife.bind(this);
-        mainPresenter.setText(restApi.getText());
     }
 
 
-    @Override
-    public void setText(String text) {
-        tvHello.setText(text);
-    }
+
+
 
     public static Intent getIntent(final Context context) {
         Intent intent = new Intent(context, MainActivity.class);
