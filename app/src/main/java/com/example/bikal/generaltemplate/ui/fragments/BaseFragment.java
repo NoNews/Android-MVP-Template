@@ -3,6 +3,9 @@ package com.example.bikal.generaltemplate.ui.fragments;
 import android.os.Bundle;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
+import com.example.bikal.generaltemplate.api.RestApi;
+
+import javax.inject.Inject;
 
 /**
  * Created by Alex Bykov on 09.11.2016.
@@ -12,6 +15,10 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 public class BaseFragment extends MvpAppCompatFragment {
 
     protected   String TAG;
+
+    //@formatter:off
+    @Inject protected RestApi restApi;
+    //@formatter:on
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
