@@ -6,6 +6,5 @@
 5. Picasso
 6. Butterknife
 8. EventBus
-9. Picasso
-10. Moxy MVP
+9. Moxy MVP
 
