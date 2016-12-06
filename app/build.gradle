@@ -28,9 +28,10 @@ dependencies {
 
 
     //moxy mvp
-    compile 'com.arello-mobile:moxy:1.1.1'
+    compile 'com.arello-mobile:moxy:1.1.2'
     provided 'com.arello-mobile:moxy-compiler:1.1.1'
     compile 'com.arello-mobile:moxy-app-compat:1.1.1'
+    compile 'com.arello-mobile:moxy-android:1.1.2'
     //butter knife
     compile 'com.jakewharton:butterknife:8.1.0'
     apt 'com.jakewharton:butterknife-compiler:8.1.0'
