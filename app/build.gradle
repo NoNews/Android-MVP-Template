@@ -5,7 +5,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25"
     defaultConfig {
-        applicationId "ru.example.techmas.androidteamplate"
+        applicationId "ru.techmas.androidteamplate"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
