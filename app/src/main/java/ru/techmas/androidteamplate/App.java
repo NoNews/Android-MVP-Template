@@ -1,13 +1,13 @@
-package ru.example.techmas.androidteamplate;
+package ru.techmas.androidteamplate;
 
 
 
 import android.app.Application;
 
-import ru.example.techmas.androidteamplate.dagger.components.AppComponent;
+import ru.techmas.androidteamplate.dagger.components.AppComponent;
+import ru.techmas.androidteamplate.dagger.components.DaggerAppComponent;
+import ru.techmas.androidteamplate.dagger.modules.AppModule;
 
-import ru.example.techmas.androidteamplate.dagger.components.DaggerAppComponent;
-import ru.example.techmas.androidteamplate.dagger.modules.AppModule;
 
 
 /**

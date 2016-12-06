@@ -1,4 +1,4 @@
-package ru.example.techmas.androidteamplate.utils;
+package ru.techmas.androidteamplate.utils;
 
 import android.content.SharedPreferences;
 

@@ -1,11 +1,11 @@
-package ru.example.techmas.androidteamplate.dagger.modules;
+package ru.techmas.androidteamplate.dagger.modules;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
 
-import ru.example.techmas.androidteamplate.App;
-import ru.example.techmas.androidteamplate.api.RestApi;
-import ru.example.techmas.androidteamplate.utils.PreferenceHelper;
+import ru.techmas.androidteamplate.App;
+import ru.techmas.androidteamplate.api.RestApi;
+import ru.techmas.androidteamplate.utils.PreferenceHelper;
 
 import javax.inject.Singleton;
 

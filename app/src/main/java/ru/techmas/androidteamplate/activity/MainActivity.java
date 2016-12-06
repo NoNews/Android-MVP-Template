@@ -1,4 +1,4 @@
-package ru.example.techmas.androidteamplate.activity;
+package ru.techmas.androidteamplate.activity;
 
 
 import android.content.Context;
@@ -7,13 +7,14 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
-import com.example.techmas.androidteamplate.R;
+
 
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ru.example.techmas.androidteamplate.interfaces.view.MainView;
-import ru.example.techmas.androidteamplate.presenter.MainPresenter;
+import ru.techmas.androidteamplate.view.MainView;
+import ru.techmas.androidteamplate.presenter.MainPresenter;
+import ru.techmas.androidteamplate.R;
 
 public class MainActivity extends BaseActivity implements MainView {
 

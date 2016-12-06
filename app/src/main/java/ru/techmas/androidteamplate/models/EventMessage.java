@@ -1,4 +1,4 @@
-package ru.example.techmas.androidteamplate.models;
+package ru.techmas.androidteamplate.models;
 
 /**
  * Created by Alex Bykov on 09.11.2016.

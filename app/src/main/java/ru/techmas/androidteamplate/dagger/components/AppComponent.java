@@ -1,9 +1,9 @@
-package ru.example.techmas.androidteamplate.dagger.components;
+package ru.techmas.androidteamplate.dagger.components;
 
-import ru.example.techmas.androidteamplate.App;
-import ru.example.techmas.androidteamplate.dagger.modules.AppModule;
-import ru.example.techmas.androidteamplate.activity.BaseActivity;
-import ru.example.techmas.androidteamplate.fragments.BaseFragment;
+import ru.techmas.androidteamplate.App;
+import ru.techmas.androidteamplate.dagger.modules.AppModule;
+import ru.techmas.androidteamplate.activity.BaseActivity;
+import ru.techmas.androidteamplate.fragments.BaseFragment;
 
 import javax.inject.Singleton;
 

@@ -1,4 +1,4 @@
-package ru.example.techmas.androidteamplate.interfaces.view;
+package ru.techmas.androidteamplate.view;
 
 import com.arellomobile.mvp.MvpView;
 

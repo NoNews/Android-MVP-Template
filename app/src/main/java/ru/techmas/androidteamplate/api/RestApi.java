@@ -1,7 +1,7 @@
-package ru.example.techmas.androidteamplate.api;
+package ru.techmas.androidteamplate.api;
 
-import ru.example.techmas.androidteamplate.api.endpoints.TestEndpoint;
-import ru.example.techmas.androidteamplate.Const;
+import ru.techmas.androidteamplate.api.endpoints.TestEndpoint;
+import ru.techmas.androidteamplate.Const;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

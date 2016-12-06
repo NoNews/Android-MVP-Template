@@ -1,4 +1,4 @@
-package ru.example.techmas.androidteamplate.api.endpoints;
+package ru.techmas.androidteamplate.api.endpoints;
 
 /**
  * Created by Alex Bykov on 09.11.2016.
