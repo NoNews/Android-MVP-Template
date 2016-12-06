@@ -1,4 +1,4 @@
-package ru.example.techmas.androidteamplate;
+package ru.techmas.androidteamplate;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

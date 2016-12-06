@@ -1,4 +1,4 @@
-package ru.example.techmas.androidteamplate;
+package ru.techmas.androidteamplate;
 
 import org.junit.Test;
 
