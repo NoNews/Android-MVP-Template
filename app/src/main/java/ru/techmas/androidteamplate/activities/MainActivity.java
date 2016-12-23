@@ -1,4 +1,4 @@
-package ru.techmas.androidteamplate.activity;
+package ru.techmas.androidteamplate.activities;
 
 
 import android.content.Context;

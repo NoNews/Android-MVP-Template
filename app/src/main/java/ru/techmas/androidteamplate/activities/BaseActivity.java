@@ -1,17 +1,13 @@
-package ru.techmas.androidteamplate.activity;
+package ru.techmas.androidteamplate.activities;
 
 import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import ru.techmas.androidteamplate.App;
-import ru.techmas.androidteamplate.api.RestApi;
-import ru.techmas.androidteamplate.utils.PreferenceHelper;
 
 
 import org.greenrobot.eventbus.EventBus;
-
-import javax.inject.Inject;
 
 /**
  * Created by Alex Bykov on 09.11.2016.
@@ -20,10 +16,6 @@ import javax.inject.Inject;
 
 public class BaseActivity extends MvpAppCompatActivity {
 
-    //@formatter:off
-    @Inject protected RestApi restApi;
-    @Inject protected PreferenceHelper preferenceHelper;
-    //@formatter:on
     protected String TAG;
 
     @Override

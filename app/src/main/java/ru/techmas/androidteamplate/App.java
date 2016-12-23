@@ -17,7 +17,7 @@ import ru.techmas.androidteamplate.dagger.modules.AppModule;
 
 public class App extends Application {
 
-    private AppComponent appComponent;
+    private static AppComponent appComponent;
 
 
     @Override
@@ -33,7 +33,7 @@ public class App extends Application {
         appComponent.inject(this);
     }
 
-    public AppComponent getAppComponent(){
+    public static AppComponent getAppComponent(){
         return appComponent;
     }
 

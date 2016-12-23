@@ -1,5 +1,6 @@
-package ru.techmas.androidteamplate.activity;
+package ru.techmas.androidteamplate.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -14,10 +15,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.techmas.androidteamplate.R;
+import ru.techmas.androidteamplate.interfaces.view.SplashView;
 import ru.techmas.androidteamplate.presenters.SplashPresenter;
 
 
-public class SplashActivity extends BaseActivity implements ru.techmas.androidteamplate.interfaces.view.SplashView {
+public class SplashActivity extends BaseActivity implements SplashView {
 
 
     private static final int LAYOUT = R.layout.activity_splash;
@@ -36,6 +38,7 @@ public class SplashActivity extends BaseActivity implements ru.techmas.androidte
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
         ButterKnife.bind(this);
+        splashPresenter.startActivityWithFragment();
     }
 
 
@@ -56,5 +59,11 @@ public class SplashActivity extends BaseActivity implements ru.techmas.androidte
     @Override
     public void goneErrorConnection() {
         ltBackground.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void showMainActivity() {
+        Intent intent = MainActivity.getIntent(this);
+        startActivity(intent);
     }
 }

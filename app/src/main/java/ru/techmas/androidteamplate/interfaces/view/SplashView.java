@@ -7,4 +7,6 @@ public interface SplashView extends MvpView {
     void showErrorConnection();
     void goneErrorConnection();
 
+    void showMainActivity();
+
 }

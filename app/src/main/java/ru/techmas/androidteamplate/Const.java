@@ -7,12 +7,7 @@ package ru.techmas.androidteamplate;
 
 public class Const {
 
-
-
-
-
-
     public static class Url {
-        public static final String API_URL = "http://admin.get-meet.techmas.ru/web/api/";
+        public static final String API = "http://admin.get-meet.techmas.ru/web/api/";
     }
 }

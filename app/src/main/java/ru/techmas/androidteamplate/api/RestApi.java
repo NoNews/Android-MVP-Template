@@ -18,9 +18,7 @@ public class RestApi {
 
     public final TestEndpoint testEndpoint;
 
-
     public RestApi(){
-
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder()
@@ -29,7 +27,7 @@ public class RestApi {
                 .build();
 
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(Const.Url.API_URL)
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(Const.Url.API)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
