@@ -33,13 +33,19 @@
         android:launchMode="singleTop"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <activity android:name="ru.techmas.androidteamplate.activity.MainActivity">
+
+        <activity
+            android:name=".activity.SplashActivity"
+            android:theme="@style/SplashScreen">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name="ru.techmas.androidteamplate.activity.MainActivity"/>
+
     </application>
 
 </manifest>

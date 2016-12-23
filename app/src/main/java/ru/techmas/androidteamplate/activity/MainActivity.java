@@ -12,8 +12,8 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ru.techmas.androidteamplate.view.MainView;
-import ru.techmas.androidteamplate.presenter.MainPresenter;
+import ru.techmas.androidteamplate.interfaces.view.MainView;
+import ru.techmas.androidteamplate.presenters.MainPresenter;
 import ru.techmas.androidteamplate.R;
 
 public class MainActivity extends BaseActivity implements MainView {
