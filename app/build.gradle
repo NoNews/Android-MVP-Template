@@ -26,12 +26,11 @@ android {
 
 dependencies {
 
-
     //moxy mvp
-    compile 'com.arello-mobile:moxy:1.1.2'
-    provided 'com.arello-mobile:moxy-compiler:1.1.1'
-    compile 'com.arello-mobile:moxy-app-compat:1.1.1'
-    compile 'com.arello-mobile:moxy-android:1.1.2'
+    compile 'com.arello-mobile:moxy:1.3.3'
+    provided 'com.arello-mobile:moxy-compiler:1.3.3'
+    compile 'com.arello-mobile:moxy-app-compat:1.3.3'
+    compile 'com.arello-mobile:moxy-android:1.3.3'
     //butter knife
     compile 'com.jakewharton:butterknife:8.1.0'
     apt 'com.jakewharton:butterknife-compiler:8.1.0'
@@ -59,7 +58,6 @@ dependencies {
     //bus
     compile 'org.greenrobot:eventbus:3.0.0'
     //retrolambda
-
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
