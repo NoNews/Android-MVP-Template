@@ -1,8 +1,10 @@
 package ru.techmas.androidteamplate.fragments;
 
 import android.app.ProgressDialog;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ProgressBar;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -43,8 +45,7 @@ public class BaseFragment extends MvpAppCompatFragment implements BaseFragmentVi
         injectDagger();
         setupTag();
     }
-
-
+    
     private void setupTag() {
         TAG = this.getClass().getSimpleName();
     }
@@ -52,8 +53,6 @@ public class BaseFragment extends MvpAppCompatFragment implements BaseFragmentVi
     private void injectDagger() {
         ((App) getActivity().getApplication()).getAppComponent().inject(this);
     }
-
-
 
     protected void startBus() {
         EventBus.getDefault().register(this);
@@ -75,12 +74,14 @@ public class BaseFragment extends MvpAppCompatFragment implements BaseFragmentVi
 
     @Override
     public void startProgress() {
-
+        progressDialog = ProgressDialog.show(getContext(), null, null);
+        progressDialog.setContentView(new ProgressBar(getContext()));
+        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
     }
 
     @Override
     public void stopProgress() {
-
+        progressDialog.cancel();
     }
 
     @Override
