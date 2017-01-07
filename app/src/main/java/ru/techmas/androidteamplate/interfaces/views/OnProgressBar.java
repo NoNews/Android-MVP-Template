@@ -1,4 +1,4 @@
-package ru.techmas.androidteamplate.interfaces.view;
+package ru.techmas.androidteamplate.interfaces.views;
 
 /**
  * Created by reg on 23.12.2016.

@@ -15,7 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.techmas.androidteamplate.R;
-import ru.techmas.androidteamplate.interfaces.view.SplashView;
+import ru.techmas.androidteamplate.interfaces.views.SplashView;
 import ru.techmas.androidteamplate.presenters.SplashPresenter;
 
 

@@ -2,7 +2,7 @@ package ru.techmas.androidteamplate.presenters;
 
 import ru.techmas.androidteamplate.App;
 import ru.techmas.androidteamplate.api.RestApi;
-import ru.techmas.androidteamplate.interfaces.view.SplashView;
+import ru.techmas.androidteamplate.interfaces.views.SplashView;
 import ru.techmas.androidteamplate.utils.PreferenceHelper;
 
 import com.arellomobile.mvp.InjectViewState;

@@ -12,7 +12,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ru.techmas.androidteamplate.interfaces.view.MainView;
+import ru.techmas.androidteamplate.interfaces.views.MainView;
 import ru.techmas.androidteamplate.presenters.MainPresenter;
 import ru.techmas.androidteamplate.R;
 

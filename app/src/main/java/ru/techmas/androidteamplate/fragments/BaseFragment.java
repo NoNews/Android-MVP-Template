@@ -13,7 +13,7 @@ import ru.techmas.androidteamplate.App;
 import ru.techmas.androidteamplate.api.RestApi;
 import ru.techmas.androidteamplate.presenters.BaseFragmentPresenter;
 import ru.techmas.androidteamplate.utils.PreferenceHelper;
-import ru.techmas.androidteamplate.interfaces.view.BaseFragmentView;
+import ru.techmas.androidteamplate.interfaces.views.BaseFragmentView;
 
 import org.greenrobot.eventbus.EventBus;
 

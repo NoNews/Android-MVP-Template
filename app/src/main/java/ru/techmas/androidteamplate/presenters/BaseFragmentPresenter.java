@@ -3,7 +3,7 @@ package ru.techmas.androidteamplate.presenters;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
-import ru.techmas.androidteamplate.interfaces.view.BaseFragmentView;
+import ru.techmas.androidteamplate.interfaces.views.BaseFragmentView;
 
 /**
  * Created by reg on 23.12.2016.
