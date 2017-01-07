@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="ru.techmas.androidteamplate">
+          package="ru.techmas.androidtemplate">
 
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -25,7 +25,7 @@
 
 
     <application
-        android:name="ru.techmas.androidteamplate.App"
+        android:name="ru.techmas.androidtemplate.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -35,7 +35,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activities.SplashActivity"
+            android:name="ru.techmas.androidtemplate.activities.SplashActivity"
             android:theme="@style/SplashScreen">
 
             <intent-filter>
@@ -44,7 +44,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="ru.techmas.androidteamplate.activities.MainActivity"/>
+        <activity android:name="ru.techmas.androidtemplate.activities.MainActivity"/>
 
     </application>
 
