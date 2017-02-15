@@ -73,5 +73,6 @@ public class SplashActivity extends BaseActivity implements SplashView {
     public void showMainActivity() {
         Intent intent = MainActivity.getIntent(this);
         startActivity(intent);
+        finish();
     }
 }
