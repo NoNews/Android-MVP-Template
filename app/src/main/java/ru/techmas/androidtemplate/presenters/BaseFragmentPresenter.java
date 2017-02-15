@@ -10,14 +10,15 @@ import ru.techmas.androidtemplate.interfaces.views.BaseFragmentView;
  */
 
 @InjectViewState
-public class BaseFragmentPresenter extends MvpPresenter<BaseFragmentView> {
+public class BaseFragmentPresenter extends BasePresenter<BaseFragmentView> {
 
     private boolean inProgress;
 
+    @Deprecated
     public void doSomeThingWithProgress(boolean visible) {
 
         if (visible) {
-            if (!inProgress){
+            if (!inProgress) {
                 inProgress = true;
                 getViewState().startProgress();
             }

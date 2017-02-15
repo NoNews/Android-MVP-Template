@@ -11,7 +11,7 @@ import com.arellomobile.mvp.MvpPresenter;
 import javax.inject.Inject;
 
 @InjectViewState
-public class SplashPresenter extends MvpPresenter<SplashView> {
+public class SplashPresenter extends BasePresenter<SplashView> {
 
 
     //@formatter:off

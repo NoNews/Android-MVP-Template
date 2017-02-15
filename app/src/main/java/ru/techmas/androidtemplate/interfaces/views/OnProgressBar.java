@@ -5,8 +5,7 @@ package ru.techmas.androidtemplate.interfaces.views;
  */
 
 
-
-
+@Deprecated
 public interface OnProgressBar {
     void showProgress(boolean progress);
 }

@@ -1,10 +1,16 @@
 package ru.techmas.androidtemplate.activities;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
+
 import ru.techmas.androidtemplate.App;
+import ru.techmas.androidtemplate.R;
 
 
 import org.greenrobot.eventbus.EventBus;
@@ -16,28 +22,22 @@ import org.greenrobot.eventbus.EventBus;
 
 public class BaseActivity extends MvpAppCompatActivity {
 
-    protected String TAG;
+    protected String TAG = getClass().getSimpleName();
+//    protected Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        injectDagger();
-        setupTag();
+        App.getAppComponent().inject(this);
+//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
-    private void setupTag() {
-        TAG = this.getClass().getSimpleName();
-    }
 
-    private void injectDagger() {
-        ((App) getApplication()).getAppComponent().inject(this);
-    }
-
-    protected void startBus(){
+    protected void startBus() {
         EventBus.getDefault().register(this);
     }
 
-    protected void stopBus(){
+    protected void stopBus() {
         EventBus.getDefault().unregister(this);
     }
 
@@ -49,4 +49,16 @@ public class BaseActivity extends MvpAppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    @SuppressWarnings("unchecked")
+    protected <T extends View> T bindView(@IdRes int id) {
+        return (T) findViewById(id);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.no_animation, R.anim.no_animation);
+    }
+
 }
