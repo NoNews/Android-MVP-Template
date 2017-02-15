@@ -8,6 +8,8 @@ import ru.techmas.androidtemplate.fragments.BaseFragment;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import ru.techmas.androidtemplate.presenters.BaseFragmentPresenter;
+import ru.techmas.androidtemplate.presenters.MainActivityPresenter;
 import ru.techmas.androidtemplate.presenters.SplashPresenter;
 
 /**
@@ -21,6 +23,14 @@ import ru.techmas.androidtemplate.presenters.SplashPresenter;
 @Component(modules = {AppModule.class})
 
 public interface AppComponent {
+
+
+    //@formatter:off
+    MainActivityPresenter getMainActivityPresenter();
+    SplashPresenter getSplashPresenter();
+    BaseFragmentPresenter getBaseFragmentPresenter();
+
+
     void inject(App app);
     void inject(BaseActivity baseActivity);
     void inject(BaseFragment baseFragment);

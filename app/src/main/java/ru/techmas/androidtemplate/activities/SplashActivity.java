@@ -10,10 +10,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import ru.techmas.androidtemplate.App;
 import ru.techmas.androidtemplate.R;
 import ru.techmas.androidtemplate.interfaces.views.SplashView;
 import ru.techmas.androidtemplate.presenters.SplashPresenter;
@@ -26,6 +28,12 @@ public class SplashActivity extends BaseActivity implements SplashView {
 
     //@formatter:off
     @InjectPresenter SplashPresenter splashPresenter;
+
+    @ProvidePresenter
+    SplashPresenter provideSplashPresenter(){
+        return App.getAppComponent().getSplashPresenter();
+    }
+    //views
     @BindView(R.id.ltBackground) LinearLayout ltBackground;
     @BindView(R.id.btnRepeat) Button btnRepeat;
     @BindView(R.id.tvSomethingWentWrong) TextView tvSomethingWentWrong;

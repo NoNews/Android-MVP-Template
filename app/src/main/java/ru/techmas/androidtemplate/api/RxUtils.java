@@ -11,8 +11,6 @@ import rx.schedulers.Schedulers;
 
 public class RxUtils {
 
-
-
     public static <T> Observable.Transformer<T, T> applySchedulers() {
         return observable ->
                 observable.subscribeOn(Schedulers.io())

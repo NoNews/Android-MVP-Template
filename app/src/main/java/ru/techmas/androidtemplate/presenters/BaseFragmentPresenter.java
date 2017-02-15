@@ -3,6 +3,8 @@ package ru.techmas.androidtemplate.presenters;
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
+import javax.inject.Inject;
+
 import ru.techmas.androidtemplate.interfaces.views.BaseFragmentView;
 
 /**
@@ -13,6 +15,11 @@ import ru.techmas.androidtemplate.interfaces.views.BaseFragmentView;
 public class BaseFragmentPresenter extends BasePresenter<BaseFragmentView> {
 
     private boolean inProgress;
+
+
+    @Inject
+    public BaseFragmentPresenter() {
+    }
 
     @Deprecated
     public void doSomeThingWithProgress(boolean visible) {

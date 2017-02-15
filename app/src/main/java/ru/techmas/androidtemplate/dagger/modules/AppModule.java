@@ -25,6 +25,8 @@ public class AppModule {
     protected RestApi restApi;
 
 
+
+
     public AppModule(App app) {
         this.app = app;
         preferenceHelper=new PreferenceHelper(PreferenceManager.getDefaultSharedPreferences(app));

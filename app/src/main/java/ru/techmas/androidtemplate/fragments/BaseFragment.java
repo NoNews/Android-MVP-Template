@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 
 import javax.inject.Inject;
 
@@ -31,12 +32,14 @@ public class BaseFragment extends MvpAppCompatFragment implements BaseFragmentVi
     protected String TAG = getClass().getSimpleName();
 
     //@formatter:off
-    @InjectPresenter
-    BaseFragmentPresenter baseFragmentPresenter;
-    @Inject
-    protected RestApi restApi;
-    @Inject
-    protected PreferenceHelper preferenceHelper;
+    @InjectPresenter BaseFragmentPresenter baseFragmentPresenter;
+    @ProvidePresenter BaseFragmentPresenter provideBasePresenter(){
+        return App.getAppComponent().getBaseFragmentPresenter();
+    }
+
+
+    @Inject protected RestApi restApi;
+    @Inject protected PreferenceHelper preferenceHelper;
     //@formatter:on
 
     public ProgressDialog progressDialog;
@@ -48,7 +51,6 @@ public class BaseFragment extends MvpAppCompatFragment implements BaseFragmentVi
         super.onCreate(savedInstanceState);
         App.getAppComponent().inject(this);
     }
-
 
 
     protected void hideKeyboard() {
