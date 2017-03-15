@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="ru.techmas.androidtemplate">
+          package="ru.techmas.burgerking">
 
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -25,7 +25,7 @@
 
 
     <application
-        android:name="ru.techmas.androidtemplate.App"
+        android:name="ru.techmas.burgerking.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -35,7 +35,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="ru.techmas.androidtemplate.activities.SplashActivity"
+            android:name="ru.techmas.burgerking.activities.SplashActivity"
             android:theme="@style/SplashScreen">
 
             <intent-filter>
@@ -44,8 +44,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="ru.techmas.androidtemplate.activities.MainActivity"/>
+        <activity android:name="ru.techmas.burgerking.activities.MainActivity"/>
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="8c1f1a23893cb0cff1062ac0db5d5289ae6e9bff" />
     </application>
 
 </manifest>
