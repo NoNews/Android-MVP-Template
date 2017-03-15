@@ -13,7 +13,7 @@ public class SplashPresenter extends BasePresenter<SplashView> {
 
 
     @Inject
-    public SplashPresenter(RestApi restApi, PreferenceHelper preferenceHelper) {
+    SplashPresenter(RestApi restApi, PreferenceHelper preferenceHelper) {
         this.restApi=restApi;
         this.preferenceHelper=preferenceHelper;
     }

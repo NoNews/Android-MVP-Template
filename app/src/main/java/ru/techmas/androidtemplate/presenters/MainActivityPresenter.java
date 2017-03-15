@@ -12,7 +12,7 @@ public class MainActivityPresenter extends BasePresenter<MainView> {
 
 
     @Inject
-    public MainActivityPresenter() {
+    MainActivityPresenter() {
 
     }
 
