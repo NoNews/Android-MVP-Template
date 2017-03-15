@@ -11,8 +11,6 @@ public class Event {
     private Object data;
     private Object secondData;
 
-
-
     public Event(int type){
         this.id =type;
     }

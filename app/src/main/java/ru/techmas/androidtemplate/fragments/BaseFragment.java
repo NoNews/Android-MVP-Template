@@ -9,15 +9,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
-import com.arellomobile.mvp.presenter.InjectPresenter;
-import com.arellomobile.mvp.presenter.ProvidePresenter;
 
 import javax.inject.Inject;
 
 import ru.techmas.androidtemplate.App;
 import ru.techmas.androidtemplate.api.RestApi;
-import ru.techmas.androidtemplate.interfaces.views.BaseFragmentView;
-import ru.techmas.androidtemplate.presenters.BaseFragmentPresenter;
 import ru.techmas.androidtemplate.utils.PreferenceHelper;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
@@ -27,23 +23,18 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
  * You can contact me at: me@alexbykov.ru.
  */
 
-public class BaseFragment extends MvpAppCompatFragment implements BaseFragmentView {
+public class BaseFragment extends MvpAppCompatFragment {
 
     protected String TAG = getClass().getSimpleName();
 
     //@formatter:off
-    @InjectPresenter BaseFragmentPresenter baseFragmentPresenter;
-    @ProvidePresenter BaseFragmentPresenter provideBasePresenter(){
-        return App.getAppComponent().getBaseFragmentPresenter();
-    }
-
-
     @Inject protected RestApi restApi;
     @Inject protected PreferenceHelper preferenceHelper;
     //@formatter:on
 
     public ProgressDialog progressDialog;
     protected View rootView;
+    boolean inProgress;
 
 
     @Override
@@ -63,21 +54,24 @@ public class BaseFragment extends MvpAppCompatFragment implements BaseFragmentVi
     }
 
 
-    @Override
     public void startProgress() {
         progressDialog = ProgressDialog.show(getContext(), null, null);
         progressDialog.setContentView(new ProgressBar(getContext()));
         progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
     }
 
-    @Override
+
     public void stopProgress() {
         progressDialog.cancel();
     }
 
-    @Override
-    public void showProgress(boolean progress) {
-        baseFragmentPresenter.doSomeThingWithProgress(progress);
+    public void showProgress(boolean visible) {
+        if (visible) {
+            if (!inProgress) {
+                inProgress = true;
+                startProgress();
+            }
+        } else stopProgress();
     }
 
 

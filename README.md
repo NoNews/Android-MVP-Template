@@ -7,9 +7,8 @@
 3. RxJava
 4. Retrolambda
 5. Picasso
-6. Butterknife
-8. EventBus
-9. Moxy MVP
+6. EventBus
+7. Moxy MVP
 
 ###How to use:
 1. Clone this project

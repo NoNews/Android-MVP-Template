@@ -12,9 +12,6 @@ import android.widget.TextView;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import ru.techmas.androidtemplate.App;
 import ru.techmas.androidtemplate.R;
 import ru.techmas.androidtemplate.interfaces.views.SplashView;
@@ -26,36 +23,39 @@ public class SplashActivity extends BaseActivity implements SplashView {
 
     private static final int LAYOUT = R.layout.activity_splash;
 
-    //@formatter:off
-    @InjectPresenter SplashPresenter splashPresenter;
+
+    @InjectPresenter
+    SplashPresenter splashPresenter;
 
     @ProvidePresenter
-    SplashPresenter provideSplashPresenter(){
+    SplashPresenter provideSplashPresenter() {
         return App.getAppComponent().getSplashPresenter();
     }
-    //views
-    @BindView(R.id.ltBackground) LinearLayout ltBackground;
-    @BindView(R.id.btnRepeat) Button btnRepeat;
-    @BindView(R.id.tvSomethingWentWrong) TextView tvSomethingWentWrong;
-    @BindView(R.id.progressBar) ProgressBar progressBar;
-    //@formatter:on
+
+    private LinearLayout ltBackground;
+    private Button btnRepeat;
+    private TextView tvSomethingWentWrong;
+    private ProgressBar progressBar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
-        ButterKnife.bind(this);
+        bindViews();
+        setupListeners();
         splashPresenter.startActivityWithFragment();
     }
 
+    private void setupListeners() {
+        btnRepeat.setOnClickListener(v -> onClickRepeatRequest());
+    }
 
-    @OnClick(R.id.btnRepeat)
+
     public void onClickRepeatRequest() {
         progressBar.setVisibility(View.VISIBLE);
         splashPresenter.startActivityWithFragment();
     }
-
 
     @Override
     public void showErrorConnection() {
@@ -73,6 +73,14 @@ public class SplashActivity extends BaseActivity implements SplashView {
     public void showMainActivity() {
         Intent intent = MainActivity.getIntent(this);
         startActivity(intent);
+        overridePendingTransition(R.anim.no_animation, R.anim.no_animation);
         finish();
+    }
+
+    private void bindViews() {
+        ltBackground = bindView(R.id.ltBackground);
+        btnRepeat = bindView(R.id.btnRepeat);
+        tvSomethingWentWrong = bindView(R.id.tvSomethingWentWrong);
+        progressBar = bindView(R.id.progressBar);
     }
 }

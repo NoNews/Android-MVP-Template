@@ -1,19 +1,16 @@
 package ru.techmas.androidtemplate.activities;
 
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 
+import org.greenrobot.eventbus.EventBus;
+
 import ru.techmas.androidtemplate.App;
 import ru.techmas.androidtemplate.R;
-
-
-import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by Alex Bykov on 09.11.2016.

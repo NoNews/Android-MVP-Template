@@ -8,8 +8,8 @@ import android.content.SharedPreferences;
  */
 
 public class PreferenceHelper {
-    public static final String PREF_TOKEN_API = "tokenAPI";
 
+    private static final String PREF_TOKEN_API = "tokenAPI";
     private SharedPreferences preferences;
     private String token;
 
@@ -31,7 +31,7 @@ public class PreferenceHelper {
         return !preferences.contains(PREF_TOKEN_API);
     }
 
-    public void exit(){
+    public void exit() {
         preferences.edit().clear().apply();
     }
 

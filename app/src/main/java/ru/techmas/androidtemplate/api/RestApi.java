@@ -1,6 +1,6 @@
 package ru.techmas.androidtemplate.api;
 
-import ru.techmas.androidtemplate.api.endpoints.TestEndpoint;
+import ru.techmas.androidtemplate.api.endpoints.User;
 import ru.techmas.androidtemplate.Const;
 
 import okhttp3.OkHttpClient;
@@ -16,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestApi {
 
-    public final TestEndpoint testEndpoint;
+    public final User testEndpoint;
 
     public RestApi(){
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -33,6 +33,6 @@ public class RestApi {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 
-        testEndpoint = retrofit.create(TestEndpoint.class);
+        testEndpoint = retrofit.create(User.class);
     }
 }

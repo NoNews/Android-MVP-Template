@@ -5,7 +5,7 @@ package ru.techmas.androidtemplate.api.endpoints;
  * You can contact me at: me@alexbykov.ru.
  */
 
-public interface TestEndpoint {
+public interface User {
 
 
     // TODO: 09.11.2016 init here!

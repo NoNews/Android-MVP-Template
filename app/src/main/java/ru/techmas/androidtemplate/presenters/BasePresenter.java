@@ -38,7 +38,7 @@ public class BasePresenter<View extends MvpView> extends MvpPresenter<View> {
             EventBus.getDefault().unregister(this);
     }
 
-    protected void unsubscribeOnDestory(@NonNull Subscription subscription) {
+    protected void unSubscribeOnDestroy(@NonNull Subscription subscription) {
         compositeSubscription.add(subscription);
     }
 

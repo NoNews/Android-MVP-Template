@@ -1,14 +1,12 @@
 package ru.techmas.androidtemplate.dagger.components;
 
-import ru.techmas.androidtemplate.App;
-import ru.techmas.androidtemplate.dagger.modules.AppModule;
-import ru.techmas.androidtemplate.activities.BaseActivity;
-import ru.techmas.androidtemplate.fragments.BaseFragment;
-
 import javax.inject.Singleton;
 
 import dagger.Component;
-import ru.techmas.androidtemplate.presenters.BaseFragmentPresenter;
+import ru.techmas.androidtemplate.App;
+import ru.techmas.androidtemplate.activities.BaseActivity;
+import ru.techmas.androidtemplate.dagger.modules.AppModule;
+import ru.techmas.androidtemplate.fragments.BaseFragment;
 import ru.techmas.androidtemplate.presenters.MainActivityPresenter;
 import ru.techmas.androidtemplate.presenters.SplashPresenter;
 
@@ -18,21 +16,15 @@ import ru.techmas.androidtemplate.presenters.SplashPresenter;
  */
 
 
-
 @Singleton
 @Component(modules = {AppModule.class})
 
 public interface AppComponent {
-
-
     //@formatter:off
-    MainActivityPresenter getMainActivityPresenter();
-    SplashPresenter getSplashPresenter();
-    BaseFragmentPresenter getBaseFragmentPresenter();
-
-
     void inject(App app);
     void inject(BaseActivity baseActivity);
     void inject(BaseFragment baseFragment);
     void inject(SplashPresenter splashPresenter);
+    MainActivityPresenter getMainActivityPresenter();
+    SplashPresenter getSplashPresenter();
 }
