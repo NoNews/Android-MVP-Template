@@ -52,10 +52,10 @@ android {
 dependencies {
 
     //moxy mvp
-    compile 'com.arello-mobile:moxy:1.4.5'
-    provided 'com.arello-mobile:moxy-compiler:1.4.5'
-    compile 'com.arello-mobile:moxy-app-compat:1.4.5'
-    compile 'com.arello-mobile:moxy-android:1.4.5'
+    compile 'com.arello-mobile:moxy:1.4.6'
+    provided 'com.arello-mobile:moxy-compiler:1.4.6'
+    compile 'com.arello-mobile:moxy-app-compat:1.4.6'
+    compile 'com.arello-mobile:moxy-android:1.4.6'
     //retrofit2
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
