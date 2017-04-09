@@ -7,8 +7,6 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 
-import org.greenrobot.eventbus.EventBus;
-
 import ru.techmas.androidtemplate.App;
 import ru.techmas.androidtemplate.R;
 
@@ -20,7 +18,7 @@ import ru.techmas.androidtemplate.R;
 public class BaseActivity extends MvpAppCompatActivity {
 
     protected String TAG = getClass().getSimpleName();
-//    protected Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +28,7 @@ public class BaseActivity extends MvpAppCompatActivity {
     }
 
 
-    protected void startBus() {
-        EventBus.getDefault().register(this);
-    }
-
-    protected void stopBus() {
-        EventBus.getDefault().unregister(this);
-    }
-
-    protected void hideKeyboard() {
+    protected final void hideKeyboard() {
         try {
             InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
@@ -48,12 +38,12 @@ public class BaseActivity extends MvpAppCompatActivity {
     }
 
     @SuppressWarnings("unchecked")
-    protected <T extends View> T bindView(@IdRes int id) {
+    protected final  <T extends View> T bindView(@IdRes int id) {
         return (T) findViewById(id);
     }
 
     @Override
-    public void finish() {
+    public final void finish() {
         super.finish();
         overridePendingTransition(R.anim.no_animation, R.anim.no_animation);
     }
