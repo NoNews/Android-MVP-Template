@@ -7,6 +7,11 @@ package ru.techmas.androidtemplate;
 
 public class Const {
 
+
+    public static class Permission {
+        public static final int LOCATION = 101;
+    }
+
     public static class Url {
         public static final String API = "http://admin.ss-ss.techmas.ru/web/api/";
     }
