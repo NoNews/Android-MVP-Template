@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidTemplate</string>
+    <string name="repeat_request">Повторить запрос</string>
+    <string name="something_went_wrong">Что-то пошло не так :\'(</string>
+</resources>
