@@ -1,6 +1,6 @@
-## Template for developing
+# Template for developing
 
-###Gradle contains:
+##Gradle contains:
 
 1. Dagger2
 2. Retrofit2
@@ -10,11 +10,11 @@
 6. EventBus
 7. Moxy MVP
 
-###How to use:
+##How to use:
 1. Clone this project
 2. Rename packages and app name
 
 
-###Templates:
+##Templates:
 You can download templates with code generation (`activity`, `fragment`, `adapter`) from [this](https://github.com/NoNews/CodeGeneration) repo.
 
