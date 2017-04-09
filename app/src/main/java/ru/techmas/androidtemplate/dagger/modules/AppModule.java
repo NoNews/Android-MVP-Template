@@ -3,14 +3,14 @@ package ru.techmas.androidtemplate.dagger.modules;
 import android.content.Context;
 import android.preference.PreferenceManager;
 
-import ru.techmas.androidtemplate.App;
-import ru.techmas.androidtemplate.api.RestApi;
-import ru.techmas.androidtemplate.utils.PreferenceHelper;
-
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
+import ru.techmas.androidtemplate.App;
+import ru.techmas.androidtemplate.api.RestApi;
+import ru.techmas.androidtemplate.utils.AnimationHelper;
+import ru.techmas.androidtemplate.utils.PreferenceHelper;
 
 /**
  * Created by Alex Bykov on 09.11.2016.
@@ -22,17 +22,23 @@ import dagger.Provides;
 public class AppModule {
     private App app;
     private PreferenceHelper preferenceHelper;
-    protected RestApi restApi;
-
-
+    private RestApi restApi;
+    private AnimationHelper animationHelper;
 
 
     public AppModule(App app) {
         this.app = app;
-        preferenceHelper=new PreferenceHelper(PreferenceManager.getDefaultSharedPreferences(app));
-        restApi=new RestApi();
+        preferenceHelper = new PreferenceHelper(PreferenceManager.getDefaultSharedPreferences(app));
+        restApi = new RestApi();
+        animationHelper = new AnimationHelper(app);
     }
 
+
+    @Provides
+    @Singleton
+    public AnimationHelper provideAnimationHelper() {
+        return animationHelper;
+    }
 
     @Provides
     @Singleton
@@ -42,10 +48,9 @@ public class AppModule {
 
     @Provides
     @Singleton
-    public PreferenceHelper provideSharedPreference(){
+    public PreferenceHelper provideSharedPreference() {
         return preferenceHelper;
     }
-
 
 
     @Provides
