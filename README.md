@@ -1,14 +1,17 @@
-# Template for developing
+# Template for  quickly initialize a new project
 
-## Gradle contains:
 
-1. Dagger2
-2. Retrofit2
-3. RxJava
-4. Retrolambda
-5. Picasso
-6. EventBus
-7. Moxy MVP
+## Libraries
+
+1. [Dagger2](https://github.com/google/dagger)
+2. [Retrofit2](https://github.com/square/retrofit)
+3. [RxJava](https://github.com/ReactiveX/RxJava)
+4. [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+5. [Retrolambda](https://github.com/evant/gradle-retrolambda)
+6. [Picasso](https://github.com/square/picasso)
+7. [EventBus](https://github.com/greenrobot/EventBus)
+8. [Moxy MVP](https://github.com/Arello-Mobile/Moxy)
+
 
 ## How to use:
 1. Clone this project
@@ -16,7 +19,10 @@
 
 
 ## Templates:
-You can download templates with code generation (`activity`, `fragment`, `adapter`) from [this](https://github.com/NoNews/CodeGeneration) repo.
+You can download templates with code generation (`activity+presenter+view`, `fragment+presenter+view`, `recyclerViewAdapter`) from [this](https://github.com/NoNews/CodeGeneration) repo.
+
+
+## License
 
 ```
 Copyright 2017 Alex Bykov

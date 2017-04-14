@@ -26,7 +26,7 @@ public class BasePresenter<View extends MvpView> extends MvpPresenter<View> {
     protected String TAG = getClass().getSimpleName();
 
 
-    CompositeSubscription compositeSubscription = new CompositeSubscription();
+    private CompositeSubscription compositeSubscription = new CompositeSubscription();
 
     protected final void startBus() {
         if (!EventBus.getDefault().isRegistered(this))

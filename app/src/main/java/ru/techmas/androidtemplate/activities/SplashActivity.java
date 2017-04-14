@@ -65,7 +65,7 @@ public class SplashActivity extends BaseActivity implements SplashView {
     }
 
     @Override
-    public void goneErrorConnection() {
+    public void hideErrorConnection() {
         ltBackground.setVisibility(View.INVISIBLE);
     }
 

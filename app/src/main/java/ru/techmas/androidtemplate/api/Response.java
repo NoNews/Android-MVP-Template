@@ -13,7 +13,6 @@ public class Response<T>{
     private String statusCode;
     @SerializedName("status_msg")
     private String statusMsg;
-
     @SerializedName("data")
     private T data;
 

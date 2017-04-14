@@ -47,5 +47,5 @@
         <activity android:name="ru.techmas.androidtemplate.activities.MainActivity"/>
 
     </application>
-
+    
 </manifest>

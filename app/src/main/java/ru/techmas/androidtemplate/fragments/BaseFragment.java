@@ -10,12 +10,6 @@ import android.widget.ProgressBar;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 
-import javax.inject.Inject;
-
-import ru.techmas.androidtemplate.App;
-import ru.techmas.androidtemplate.api.RestApi;
-import ru.techmas.androidtemplate.utils.PreferenceHelper;
-
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
 /**
@@ -27,11 +21,6 @@ public class BaseFragment extends MvpAppCompatFragment {
 
     protected String TAG = getClass().getSimpleName();
 
-    //@formatter:off
-    @Inject protected RestApi restApi;
-    @Inject protected PreferenceHelper preferenceHelper;
-    //@formatter:on
-
     public ProgressDialog progressDialog;
     protected View rootView;
     boolean inProgress;
@@ -40,7 +29,6 @@ public class BaseFragment extends MvpAppCompatFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        App.getAppComponent().inject(this);
     }
 
 

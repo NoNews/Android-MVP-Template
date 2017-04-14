@@ -7,7 +7,6 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 
-import ru.techmas.androidtemplate.App;
 import ru.techmas.androidtemplate.R;
 
 /**
@@ -23,7 +22,6 @@ public class BaseActivity extends MvpAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        App.getAppComponent().inject(this);
 //        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
