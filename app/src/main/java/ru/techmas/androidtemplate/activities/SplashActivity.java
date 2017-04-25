@@ -44,7 +44,7 @@ public class SplashActivity extends BaseActivity implements SplashView {
         setContentView(LAYOUT);
         bindViews();
         setupListeners();
-        splashPresenter.startActivityWithFragment();
+        splashPresenter.startNext();
     }
 
     private void setupListeners() {
@@ -54,7 +54,7 @@ public class SplashActivity extends BaseActivity implements SplashView {
 
     public void onClickRepeatRequest() {
         progressBar.setVisibility(View.VISIBLE);
-        splashPresenter.startActivityWithFragment();
+        splashPresenter.startNext();
     }
 
     @Override

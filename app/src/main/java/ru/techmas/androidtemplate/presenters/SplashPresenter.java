@@ -4,7 +4,7 @@ import com.arellomobile.mvp.InjectViewState;
 
 import javax.inject.Inject;
 
-import ru.techmas.androidtemplate.api.RestApi;
+import ru.techmas.androidtemplate.api.rest.RestApi;
 import ru.techmas.androidtemplate.interfaces.views.SplashView;
 import ru.techmas.androidtemplate.utils.PreferenceHelper;
 
@@ -18,7 +18,7 @@ public class SplashPresenter extends BasePresenter<SplashView> {
         this.preferenceHelper=preferenceHelper;
     }
 
-    public void startActivityWithFragment() {
+    public void startNext() {
 
         if (preferenceHelper.isFirstRun()) {
             getViewState().showMainActivity();

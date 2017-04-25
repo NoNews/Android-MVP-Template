@@ -1,4 +1,4 @@
-package ru.techmas.androidtemplate.api;
+package ru.techmas.androidtemplate.api.rest;
 
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;

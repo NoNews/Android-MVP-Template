@@ -7,7 +7,7 @@ import com.arellomobile.mvp.MvpView;
 
 import org.greenrobot.eventbus.EventBus;
 
-import ru.techmas.androidtemplate.api.RestApi;
+import ru.techmas.androidtemplate.api.rest.RestApi;
 import ru.techmas.androidtemplate.utils.PreferenceHelper;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;

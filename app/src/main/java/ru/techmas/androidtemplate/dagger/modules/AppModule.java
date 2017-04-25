@@ -8,7 +8,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import ru.techmas.androidtemplate.App;
-import ru.techmas.androidtemplate.api.RestApi;
+import ru.techmas.androidtemplate.api.rest.RestApi;
 import ru.techmas.androidtemplate.utils.AnimationHelper;
 import ru.techmas.androidtemplate.utils.PreferenceHelper;
 
@@ -29,7 +29,7 @@ public class AppModule {
     public AppModule(App app) {
         this.app = app;
         preferenceHelper = new PreferenceHelper(PreferenceManager.getDefaultSharedPreferences(app));
-        restApi = new RestApi();
+        restApi = new RestApi(preferenceHelper);
         animationHelper = new AnimationHelper(app);
     }
 

@@ -14,5 +14,6 @@ public class Const {
 
     public static class Url {
         public static final String API = "http://admin.ss-ss.sssss.ru/ss/ss/";
+        public static final String AUTHORIZATION = "Authorization";
     }
 }
