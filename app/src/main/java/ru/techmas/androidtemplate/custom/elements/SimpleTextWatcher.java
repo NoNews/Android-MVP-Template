@@ -23,4 +23,6 @@ public class SimpleTextWatcher implements TextWatcher {
     public void afterTextChanged(Editable editable) {
 
     }
+
+
 }

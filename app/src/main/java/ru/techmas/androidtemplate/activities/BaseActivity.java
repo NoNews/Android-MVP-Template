@@ -1,5 +1,6 @@
 package ru.techmas.androidtemplate.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.view.View;
@@ -50,6 +51,13 @@ public class BaseActivity extends MvpAppCompatActivity {
         if (view.getVisibility() == View.GONE) {
             view.setVisibility(View.VISIBLE);
         }
+    }
+
+
+    public void startActivity(Class<?> activityClass) {
+        Intent intent = new Intent(this, activityClass);
+        startActivity(intent);
+        overridePendingTransition(R.anim.no_animation, R.anim.no_animation);
     }
 
 
