@@ -8,7 +8,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import ru.techmas.androidtemplate.App;
-import ru.techmas.androidtemplate.api.rest.RestApi;
+import ru.techmas.androidtemplate.api.RestApi;
 import ru.techmas.androidtemplate.utils.AnimationHelper;
 import ru.techmas.androidtemplate.utils.PreferenceHelper;
 

@@ -1,4 +1,4 @@
-package ru.techmas.androidtemplate.api.rest;
+package ru.techmas.androidtemplate.api;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -30,6 +30,15 @@ public class RestApi {
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         TokenAppendingHeaderInterceptor tokenInterceptor = new TokenAppendingHeaderInterceptor();
+
+
+
+
+        //if backend have cookies instead token,compile 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+        // and add .cookieJar(cookieJar) into OkHttpClient;
+        // ClearableCookieJar cookieJar = new PersistentCookieJar(dataControl.getCookieCache(), dataControl.getSharedPrefsCookiePersistor());
+
+
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(interceptor)

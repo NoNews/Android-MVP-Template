@@ -36,9 +36,22 @@ public class BaseActivity extends MvpAppCompatActivity {
     }
 
     @SuppressWarnings("unchecked")
-    protected final  <T extends View> T bindView(@IdRes int id) {
+    protected final <T extends View> T bindView(@IdRes int id) {
         return (T) findViewById(id);
     }
+
+    protected void hideView(View view) {
+        if (view.getVisibility() == View.VISIBLE) {
+            view.setVisibility(View.GONE);
+        }
+    }
+
+    protected void showView(View view) {
+        if (view.getVisibility() == View.GONE) {
+            view.setVisibility(View.VISIBLE);
+        }
+    }
+
 
     @Override
     public final void finish() {

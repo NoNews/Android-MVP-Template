@@ -1,12 +1,10 @@
 package ru.techmas.androidtemplate.fragments;
 
 import android.app.ProgressDialog;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ProgressBar;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 
@@ -42,24 +40,16 @@ public class BaseFragment extends MvpAppCompatFragment {
     }
 
 
-    public void startProgress() {
-        progressDialog = ProgressDialog.show(getContext(), null, null);
-        progressDialog.setContentView(new ProgressBar(getContext()));
-        progressDialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+    protected void hideView(View view) {
+        if (view.getVisibility() == View.VISIBLE) {
+            view.setVisibility(View.GONE);
+        }
     }
 
-
-    public void stopProgress() {
-        progressDialog.cancel();
-    }
-
-    public void showProgress(boolean visible) {
-        if (visible) {
-            if (!inProgress) {
-                inProgress = true;
-                startProgress();
-            }
-        } else stopProgress();
+    protected void showView(View view) {
+        if (view.getVisibility() == View.GONE) {
+            view.setVisibility(View.VISIBLE);
+        }
     }
 
 
