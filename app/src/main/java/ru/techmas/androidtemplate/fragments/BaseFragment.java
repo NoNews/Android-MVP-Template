@@ -1,15 +1,16 @@
 package ru.techmas.androidtemplate.fragments;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 
 import ru.techmas.androidtemplate.R;
+import ru.techmas.androidtemplate.activities.BaseActivity;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
@@ -21,10 +22,7 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
 public class BaseFragment extends MvpAppCompatFragment {
 
     protected String TAG = getClass().getSimpleName();
-
-    public ProgressDialog progressDialog;
     protected View rootView;
-    boolean inProgress;
 
 
     @Override
@@ -43,19 +41,19 @@ public class BaseFragment extends MvpAppCompatFragment {
     }
 
 
-    public void startActivity(Class<?> activityClass) {
+    public void startActivity(Class<? extends BaseActivity> activityClass) {
         Intent intent = new Intent(getActivity(), activityClass);
         startActivity(intent);
         getActivity().overridePendingTransition(R.anim.no_animation, R.anim.no_animation);
     }
 
-    protected void hideView(View view) {
+    protected void hideView(@NonNull View view) {
         if (view.getVisibility() == View.VISIBLE) {
             view.setVisibility(View.GONE);
         }
     }
 
-    protected void showView(View view) {
+    protected void showView(@NonNull View view) {
         if (view.getVisibility() == View.GONE) {
             view.setVisibility(View.VISIBLE);
         }

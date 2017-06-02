@@ -8,7 +8,7 @@ package ru.techmas.androidtemplate.api.endpoints;
 public interface User {
 
 
-    // TODO: 09.11.2016 init here!
+//    // TODO: 09.11.2016 init here!
 //    @GET("album/list")
-//    Observable<StatusResponse<List<AlbumDTO>>> getAlbumList();
+//    Observable<Response<List<String>>> getAlbumList();
 }

@@ -3,6 +3,7 @@ package ru.techmas.androidtemplate.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -41,20 +42,20 @@ public class BaseActivity extends MvpAppCompatActivity {
         return (T) findViewById(id);
     }
 
-    protected void hideView(View view) {
+    protected void hideView(@NonNull View view) {
         if (view.getVisibility() == View.VISIBLE) {
             view.setVisibility(View.GONE);
         }
     }
 
-    protected void showView(View view) {
+    protected void showView(@NonNull View view) {
         if (view.getVisibility() == View.GONE) {
             view.setVisibility(View.VISIBLE);
         }
     }
 
 
-    public void startActivity(Class<?> activityClass) {
+    public void startActivity(Class<? extends BaseActivity> activityClass) {
         Intent intent = new Intent(this, activityClass);
         startActivity(intent);
         overridePendingTransition(R.anim.no_animation, R.anim.no_animation);

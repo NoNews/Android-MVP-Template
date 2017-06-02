@@ -1,8 +1,10 @@
 package ru.techmas.androidtemplate.utils;
 
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+
+import io.reactivex.ObservableTransformer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+
 
 /**
  * Created by Alex Bykov on 15.02.2017.
@@ -11,10 +13,9 @@ import rx.schedulers.Schedulers;
 
 public class RxUtils {
 
-    public static <T> Observable.Transformer<T, T> applySchedulers() {
+    public static <T> ObservableTransformer<T, T> httpSchedulers() {
         return observable ->
-                observable
-                        .subscribeOn(Schedulers.io())
+                observable.subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread());
     }
 }

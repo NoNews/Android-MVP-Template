@@ -36,26 +36,26 @@ public class AppModule {
 
     @Provides
     @Singleton
-    public AnimationHelper provideAnimationHelper() {
+    AnimationHelper provideAnimationHelper() {
         return animationHelper;
     }
 
     @Provides
     @Singleton
-    public RestApi provideRestApi() {
+    RestApi provideRestApi() {
         return restApi;
     }
 
     @Provides
     @Singleton
-    public PreferenceHelper provideSharedPreference() {
+    PreferenceHelper provideSharedPreference() {
         return preferenceHelper;
     }
 
 
     @Provides
     @Singleton
-    public Context provideApplicationContext() {
+    Context provideApplicationContext() {
         return app;
     }
 

@@ -1,18 +1,18 @@
 package ru.techmas.androidtemplate.api;
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
-import okhttp3.Request;
-import ru.techmas.androidtemplate.api.endpoints.User;
-import ru.techmas.androidtemplate.Const;
-
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import ru.techmas.androidtemplate.Const;
+import ru.techmas.androidtemplate.api.endpoints.User;
 import ru.techmas.androidtemplate.utils.PreferenceHelper;
 
 /**
@@ -32,12 +32,9 @@ public class RestApi {
         TokenAppendingHeaderInterceptor tokenInterceptor = new TokenAppendingHeaderInterceptor();
 
 
-
-
         //if backend have cookies instead token,compile 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
         // and add .cookieJar(cookieJar) into OkHttpClient;
         // ClearableCookieJar cookieJar = new PersistentCookieJar(dataControl.getCookieCache(), dataControl.getSharedPrefsCookiePersistor());
-
 
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder()
@@ -52,7 +49,7 @@ public class RestApi {
         Retrofit retrofit = new Retrofit.Builder().baseUrl(Const.Url.API)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
         user = retrofit.create(User.class);
