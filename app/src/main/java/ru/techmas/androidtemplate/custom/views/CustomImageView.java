@@ -2,10 +2,12 @@ package ru.techmas.androidtemplate.custom.views;
 
 import android.content.Context;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import retrofit2.http.Url;
 import ru.techmas.androidtemplate.utils.ImageLoader;
 
 /**
@@ -31,7 +33,7 @@ public class CustomImageView extends ImageView {
     }
 
 
-    public final void load(String URL) {
+    public final void load(@NonNull String URL) {
         ImageLoader.load(getContext(), this, URL);
     }
 
