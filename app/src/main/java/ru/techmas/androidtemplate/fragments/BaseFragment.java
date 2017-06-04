@@ -9,6 +9,7 @@ import com.arellomobile.mvp.MvpAppCompatFragment;
 
 import ru.techmas.androidtemplate.App;
 import ru.techmas.androidtemplate.activities.BaseActivity;
+import ru.techmas.androidtemplate.interfaces.utils_view.NavigatorView;
 import ru.techmas.androidtemplate.utils.KeyboardHelper;
 import ru.techmas.androidtemplate.utils.Navigator;
 
@@ -17,7 +18,7 @@ import ru.techmas.androidtemplate.utils.Navigator;
  * You can contact me at: me@alexbykov.ru.
  */
 
-public class BaseFragment extends MvpAppCompatFragment {
+public abstract class BaseFragment extends MvpAppCompatFragment implements NavigatorView {
 
     protected final String TAG = getClass().getSimpleName();
     protected View rootView;
@@ -29,14 +30,18 @@ public class BaseFragment extends MvpAppCompatFragment {
         App.getViewComponent().inject(this);
     }
 
-
-    protected void hideKeyboard() {
+    protected final void hideKeyboard() {
         KeyboardHelper.hide(getActivity());
     }
 
-
-    public void startActivity(Class<? extends BaseActivity> activityClass) {
+    @Override
+    public final void startActivity(Class<? extends BaseActivity> activityClass) {
         Navigator.startActivity(getActivity(), activityClass);
+    }
+
+    @Override
+    public final void startActivityForResult(Class<? extends BaseActivity> activityClass, int requestCode) {
+        Navigator.startActivityForResult(getActivity(), activityClass, requestCode);
     }
 
     protected final void hideView(@NonNull View view) {

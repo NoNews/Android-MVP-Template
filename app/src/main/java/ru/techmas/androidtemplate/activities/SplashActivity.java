@@ -1,9 +1,6 @@
 package ru.techmas.androidtemplate.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -44,43 +41,27 @@ public class SplashActivity extends BaseActivity implements SplashView {
         setContentView(LAYOUT);
         bindViews();
         setupListeners();
-        splashPresenter.startNext();
+        getMvpDelegate().onAttach();
     }
 
     private void setupListeners() {
-        btnRepeat.setOnClickListener(v -> onClickRepeatRequest());
+        btnRepeat.setOnClickListener(v -> splashPresenter.startNext());
     }
 
-
-    public void onClickRepeatRequest() {
-        progressBar.setVisibility(View.VISIBLE);
-        splashPresenter.startNext();
-    }
-
-    @Override
-    public void showErrorConnection() {
-        progressBar.setVisibility(View.INVISIBLE);
-        ltBackground.setVisibility(View.VISIBLE);
-        tvSomethingWentWrong.startAnimation(AnimationUtils.loadAnimation(this, R.anim.error_translation));
-    }
-
-    @Override
-    public void hideErrorConnection() {
-        ltBackground.setVisibility(View.INVISIBLE);
-    }
-
-    @Override
-    public void showMainActivity() {
-        Intent intent = MainActivity.getIntent(this);
-        startActivity(intent);
-        overridePendingTransition(R.anim.no_animation, R.anim.no_animation);
-        finish();
-    }
 
     private void bindViews() {
         ltBackground = bindView(R.id.ltBackground);
         btnRepeat = bindView(R.id.btnRepeat);
         tvSomethingWentWrong = bindView(R.id.tvSomethingWentWrong);
         progressBar = bindView(R.id.progressBar);
+    }
+
+    @Override
+    public final void showErrorConnection(boolean show) {
+        if (show) {
+            hideView(progressBar);
+            showView(ltBackground);
+            animationHelper.scaleIn(tvSomethingWentWrong);
+        } else hideView(ltBackground);
     }
 }

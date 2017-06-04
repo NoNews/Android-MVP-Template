@@ -1,8 +1,6 @@
 package ru.techmas.androidtemplate.activities;
 
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -31,9 +29,4 @@ public class MainActivity extends BaseActivity implements MainView {
         setContentView(LAYOUT);
     }
 
-
-    public static Intent getIntent(final Context context) {
-        Intent intent = new Intent(context, MainActivity.class);
-        return intent;
-    }
 }

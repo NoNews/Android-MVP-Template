@@ -21,7 +21,7 @@ import rx.subscriptions.CompositeSubscription;
 public class BasePresenter<View extends MvpView> extends MvpPresenter<View> {
 
     protected RestApi restApi;
-    protected TokenHelper preferenceHelper;
+    protected TokenHelper tokenHelper;
     //
     protected final String TAG = getClass().getSimpleName();
 
