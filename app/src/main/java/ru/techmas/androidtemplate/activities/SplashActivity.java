@@ -29,7 +29,7 @@ public class SplashActivity extends BaseActivity implements SplashView {
 
     @ProvidePresenter
     SplashPresenter provideSplashPresenter() {
-        return App.getAppComponent().getSplashPresenter();
+        return App.getPresenterComponent().getSplashPresenter();
     }
 
     private LinearLayout ltBackground;

@@ -1,10 +1,11 @@
-package ru.techmas.androidtemplate.dagger.components;
+package ru.techmas.androidtemplate.di.components;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
 import ru.techmas.androidtemplate.App;
-import ru.techmas.androidtemplate.dagger.modules.AppModule;
+import ru.techmas.androidtemplate.di.modules.RestModule;
+import ru.techmas.androidtemplate.di.modules.UtilsModule;
 import ru.techmas.androidtemplate.presenters.MainActivityPresenter;
 import ru.techmas.androidtemplate.presenters.SplashPresenter;
 
@@ -15,9 +16,9 @@ import ru.techmas.androidtemplate.presenters.SplashPresenter;
 
 
 @Singleton
-@Component(modules = {AppModule.class})
+@Component(modules = {RestModule.class, UtilsModule.class})
 
-public interface AppComponent {
+public interface PresenterComponent {
     //@formatter:off
     void inject(App app);
     MainActivityPresenter getMainActivityPresenter();

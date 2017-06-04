@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity implements MainView {
 
     @ProvidePresenter
     MainActivityPresenter provideMainActivityPresenter() {
-        return App.getAppComponent().getMainActivityPresenter();
+        return App.getPresenterComponent().getMainActivityPresenter();
     }
 
     @Override

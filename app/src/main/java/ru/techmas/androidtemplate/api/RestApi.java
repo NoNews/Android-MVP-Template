@@ -13,7 +13,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ru.techmas.androidtemplate.Const;
 import ru.techmas.androidtemplate.api.endpoints.User;
-import ru.techmas.androidtemplate.utils.PreferenceHelper;
+import ru.techmas.androidtemplate.utils.presenter.TokenHelper;
 
 /**
  * Created by Alex Bykov on 09.11.2016.
@@ -23,10 +23,11 @@ import ru.techmas.androidtemplate.utils.PreferenceHelper;
 public class RestApi {
 
     public final User user;
-    private PreferenceHelper preferenceHelper;
+    private TokenHelper tokenHelper;
+    private Retrofit retrofit;
 
-    public RestApi(PreferenceHelper preferenceHelper) {
-        this.preferenceHelper = preferenceHelper;
+    public RestApi(TokenHelper preferenceHelper) {
+        this.tokenHelper = preferenceHelper;
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         TokenAppendingHeaderInterceptor tokenInterceptor = new TokenAppendingHeaderInterceptor();
@@ -46,13 +47,19 @@ public class RestApi {
                 .build();
 
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl(Const.Url.API)
+        retrofit = new Retrofit.Builder().baseUrl(Const.Url.API_PRODACTION)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 
         user = retrofit.create(User.class);
+    }
+
+    public final String getServer() {
+        String url = retrofit.baseUrl().toString();
+        if (url.equals(Const.Url.API_PRODACTION)) return "Prodaction";
+        else return "Test";
     }
 
 
@@ -64,14 +71,14 @@ public class RestApi {
             final int NO_AUTHORIZED = 401;
 
             Request request = chain.request();
-            String token = preferenceHelper.getToken();
+            String token = tokenHelper.getToken();
             Request newRequest = request.newBuilder()
                     .addHeader(Const.Url.AUTHORIZATION, token)
                     .build();
 
             okhttp3.Response response = chain.proceed(newRequest);
             if (response.code() == NO_AUTHORIZED) {
-                // TODO: 25.04.2017  reload Application, and clear token
+                // TODO: 25.04.2017  reload Application, and clear token or update token
 
             }
             return response;

@@ -1,13 +1,15 @@
 package ru.techmas.androidtemplate;
 
 
-
 import android.app.Application;
 
-import ru.techmas.androidtemplate.dagger.components.AppComponent;
-import ru.techmas.androidtemplate.dagger.components.DaggerAppComponent;
-import ru.techmas.androidtemplate.dagger.modules.AppModule;
-
+import ru.techmas.androidtemplate.di.components.DaggerPresenterComponent;
+import ru.techmas.androidtemplate.di.components.DaggerViewComponent;
+import ru.techmas.androidtemplate.di.components.PresenterComponent;
+import ru.techmas.androidtemplate.di.components.ViewComponent;
+import ru.techmas.androidtemplate.di.modules.RestModule;
+import ru.techmas.androidtemplate.di.modules.UtilsModule;
+import ru.techmas.androidtemplate.di.modules.ViewModule;
 
 
 /**
@@ -17,7 +19,8 @@ import ru.techmas.androidtemplate.dagger.modules.AppModule;
 
 public class App extends Application {
 
-    private static AppComponent appComponent;
+    private static PresenterComponent presenterComponent;
+    private static ViewComponent viewComponent;
 
     @Override
     public void onCreate() {
@@ -25,15 +28,26 @@ public class App extends Application {
         setupDagger2();
     }
 
-    private void setupDagger2() {
-        appComponent = DaggerAppComponent.builder()
-                .appModule(new AppModule(this))
+    private  void setupDagger2() {
+        presenterComponent = DaggerPresenterComponent.builder()
+                .restModule(new RestModule(this))
+                .utilsModule(new UtilsModule(this))
                 .build();
-        appComponent.inject(this);
+        presenterComponent.inject(this);
+
+        viewComponent = DaggerViewComponent.builder()
+                .viewModule(new ViewModule(this))
+                .build();
+        viewComponent.inject(this);
     }
 
-    public static AppComponent getAppComponent(){
-        return appComponent;
+
+    public static PresenterComponent getPresenterComponent() {
+        return presenterComponent;
+    }
+
+    public static ViewComponent getViewComponent() {
+        return viewComponent;
     }
 
 }

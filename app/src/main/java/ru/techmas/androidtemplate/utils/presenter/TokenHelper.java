@@ -1,4 +1,4 @@
-package ru.techmas.androidtemplate.utils;
+package ru.techmas.androidtemplate.utils.presenter;
 
 import android.content.SharedPreferences;
 
@@ -7,13 +7,13 @@ import android.content.SharedPreferences;
  * You can contact me at: me@alexbykov.ru.
  */
 
-public class PreferenceHelper {
+public class TokenHelper {
 
     private static final String PREF_TOKEN_API = "tokenAPI";
     private SharedPreferences preferences;
     private String token;
 
-    public PreferenceHelper(SharedPreferences preferences) {
+    public TokenHelper(SharedPreferences preferences) {
         this.preferences = preferences;
     }
 

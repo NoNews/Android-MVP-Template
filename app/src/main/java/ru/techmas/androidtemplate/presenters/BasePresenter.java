@@ -8,7 +8,7 @@ import com.arellomobile.mvp.MvpView;
 import org.greenrobot.eventbus.EventBus;
 
 import ru.techmas.androidtemplate.api.RestApi;
-import ru.techmas.androidtemplate.utils.PreferenceHelper;
+import ru.techmas.androidtemplate.utils.presenter.TokenHelper;
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
@@ -21,7 +21,7 @@ import rx.subscriptions.CompositeSubscription;
 public class BasePresenter<View extends MvpView> extends MvpPresenter<View> {
 
     protected RestApi restApi;
-    protected PreferenceHelper preferenceHelper;
+    protected TokenHelper preferenceHelper;
     //
     protected final String TAG = getClass().getSimpleName();
 

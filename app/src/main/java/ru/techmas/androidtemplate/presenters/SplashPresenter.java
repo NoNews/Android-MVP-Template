@@ -6,14 +6,14 @@ import javax.inject.Inject;
 
 import ru.techmas.androidtemplate.api.RestApi;
 import ru.techmas.androidtemplate.interfaces.views.SplashView;
-import ru.techmas.androidtemplate.utils.PreferenceHelper;
+import ru.techmas.androidtemplate.utils.presenter.TokenHelper;
 
 @InjectViewState
 public class SplashPresenter extends BasePresenter<SplashView> {
 
 
     @Inject
-    SplashPresenter(RestApi restApi, PreferenceHelper preferenceHelper) {
+    SplashPresenter(RestApi restApi, TokenHelper preferenceHelper) {
         this.restApi=restApi;
         this.preferenceHelper=preferenceHelper;
     }

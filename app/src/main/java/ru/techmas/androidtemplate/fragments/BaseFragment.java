@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 
+import ru.techmas.androidtemplate.App;
 import ru.techmas.androidtemplate.activities.BaseActivity;
 import ru.techmas.androidtemplate.utils.KeyboardHelper;
 import ru.techmas.androidtemplate.utils.Navigator;
@@ -25,6 +26,7 @@ public class BaseFragment extends MvpAppCompatFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        App.getViewComponent().inject(this);
     }
 
 
