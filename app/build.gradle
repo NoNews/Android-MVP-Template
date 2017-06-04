@@ -56,7 +56,7 @@ ext.versionRetrofit = '2.1.0'
 ext.versionOkHttp = '3.5.0'
 ext.versionMaterial = '25.3.1'
 ext.versionMoxy = '1.5.1'
-ext.versionDagger = '2.5'
+ext.versionDagger = '2.9'
 
 dependencies {
 
