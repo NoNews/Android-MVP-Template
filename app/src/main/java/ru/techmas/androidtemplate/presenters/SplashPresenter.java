@@ -9,6 +9,7 @@ import ru.techmas.androidtemplate.api.RestApi;
 import ru.techmas.androidtemplate.interfaces.views.SplashView;
 import ru.techmas.androidtemplate.utils.presenter.TokenHelper;
 
+
 @InjectViewState
 public class SplashPresenter extends BasePresenter<SplashView> {
 
@@ -17,7 +18,11 @@ public class SplashPresenter extends BasePresenter<SplashView> {
         this.restApi = restApi;
         this.tokenHelper = preferenceHelper;
         startNext();
+
+
     }
+
+
 
     public final void startNext() {
         getViewState().showErrorConnection(false);
