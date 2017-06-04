@@ -6,7 +6,7 @@ import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
+import ru.techmas.androidtemplate.utils.ImageLoader;
 
 /**
  * Created by reg on 09.04.2017.
@@ -31,10 +31,9 @@ public class CustomImageView extends ImageView {
     }
 
 
-    public void load(String URL){
-        Picasso.with(getContext()).load(URL).into(this);
+    public final void load(String URL) {
+        ImageLoader.load(getContext(), this, URL);
     }
-
 
 
 }

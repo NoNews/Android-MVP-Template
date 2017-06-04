@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 android {
     compileSdkVersion 25
@@ -84,10 +83,11 @@ dependencies {
     compile "com.android.support:support-v4:$versionMaterial"
     compile "com.android.support:cardview-v7:$versionMaterial"
     //images
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC0'
     //di
     compile "com.google.dagger:dagger:$versionDagger"
-    apt "com.google.dagger:dagger-compiler:$versionDagger"
+    annotationProcessor "com.google.dagger:dagger-compiler:$versionDagger"
     provided 'javax.annotation:jsr250-api:1.0'
     //bus
     compile 'org.greenrobot:eventbus:3.0.0'
