@@ -7,14 +7,17 @@ import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 
-import ru.techmas.androidtemplate.Const;
-
 /**
  * Created by reg on 07.02.2017.
  */
 
 public class PermissionHelper {
 
+    //@formatter:off
+    private PermissionHelper(){};
+    //@formatter:on
+
+    public static final int LOCATION = 101;
 
     private static boolean weDontHaveLocationPermission(Context context) {
         return ActivityCompat.checkSelfPermission(context,
@@ -31,7 +34,7 @@ public class PermissionHelper {
     private static void locationRequest(Activity activity) {
         ActivityCompat.requestPermissions(activity, new String[]{
                 Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION}, Const.Permission.LOCATION);
+                Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION);
     }
 
 

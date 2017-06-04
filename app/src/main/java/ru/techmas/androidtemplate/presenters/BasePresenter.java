@@ -23,16 +23,18 @@ public class BasePresenter<View extends MvpView> extends MvpPresenter<View> {
     protected RestApi restApi;
     protected PreferenceHelper preferenceHelper;
     //
-    protected String TAG = getClass().getSimpleName();
+    protected final String TAG = getClass().getSimpleName();
 
 
     private CompositeSubscription compositeSubscription = new CompositeSubscription();
 
+    @Deprecated
     protected final void startBus() {
         if (!EventBus.getDefault().isRegistered(this))
             EventBus.getDefault().register(this);
     }
 
+    @Deprecated
     protected final void stopBus() {
         if (EventBus.getDefault().isRegistered(this))
             EventBus.getDefault().unregister(this);
