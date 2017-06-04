@@ -15,7 +15,7 @@ import ru.techmas.androidtemplate.interfaces.views.BaseView;
  *         You can contact me at me@alexbykov.ru
  */
 @StateStrategyType(OneExecutionStateStrategy.class)
-public interface NavigatorView extends BaseView {
+public interface NavigatorActivityView extends BaseView {
     void startActivity(Class<? extends BaseActivity> activityClass);
     void startActivityForResult(Class<? extends BaseActivity> activityClass, int requestCode);
 }

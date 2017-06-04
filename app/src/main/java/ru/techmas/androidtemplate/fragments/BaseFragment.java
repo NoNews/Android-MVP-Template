@@ -4,12 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.view.animation.Animation;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 
 import ru.techmas.androidtemplate.App;
 import ru.techmas.androidtemplate.activities.BaseActivity;
-import ru.techmas.androidtemplate.interfaces.utils_view.NavigatorView;
+import ru.techmas.androidtemplate.interfaces.utils_view.NavigatorActivityView;
 import ru.techmas.androidtemplate.utils.KeyboardHelper;
 import ru.techmas.androidtemplate.utils.Navigator;
 
@@ -18,7 +19,7 @@ import ru.techmas.androidtemplate.utils.Navigator;
  * You can contact me at: me@alexbykov.ru.
  */
 
-public abstract class BaseFragment extends MvpAppCompatFragment implements NavigatorView {
+public abstract class BaseFragment extends MvpAppCompatFragment implements NavigatorActivityView {
 
     protected final String TAG = getClass().getSimpleName();
     protected View rootView;
@@ -60,6 +61,17 @@ public abstract class BaseFragment extends MvpAppCompatFragment implements Navig
     @SuppressWarnings("unchecked")
     protected final <T extends View> T bindView(@IdRes int id) {
         return (T) rootView.findViewById(id);
+    }
+
+    @Override
+    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+        if (Navigator.isFragmentAnimationDisabled) {
+            Animation a = new Animation() {
+            };
+            a.setDuration(0);
+            return a;
+        }
+        return super.onCreateAnimation(transit, enter, nextAnim);
     }
 
 
