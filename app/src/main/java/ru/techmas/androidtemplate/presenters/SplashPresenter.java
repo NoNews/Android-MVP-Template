@@ -18,10 +18,7 @@ public class SplashPresenter extends BasePresenter<SplashView> {
         this.restApi = restApi;
         this.tokenHelper = preferenceHelper;
         startNext();
-
-
     }
-
 
 
     public final void startNext() {
@@ -30,4 +27,5 @@ public class SplashPresenter extends BasePresenter<SplashView> {
             getViewState().startActivity(MainActivity.class);
         }
     }
+
 }

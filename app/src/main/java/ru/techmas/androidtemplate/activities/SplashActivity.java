@@ -61,6 +61,7 @@ public class SplashActivity extends BaseActivity implements SplashView {
         if (show) {
             hideView(progressBar);
             showView(ltBackground);
+
             animationHelper.scaleIn(tvSomethingWentWrong);
         } else hideView(ltBackground);
     }

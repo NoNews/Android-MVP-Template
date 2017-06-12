@@ -10,6 +10,7 @@ import ru.techmas.androidtemplate.di.components.ViewComponent;
 import ru.techmas.androidtemplate.di.modules.RestModule;
 import ru.techmas.androidtemplate.di.modules.UtilsModule;
 import ru.techmas.androidtemplate.di.modules.ViewModule;
+import timber.log.Timber;
 
 
 /**
@@ -26,9 +27,12 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         setupDagger2();
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
     }
 
-    private  void setupDagger2() {
+    private void setupDagger2() {
         presenterComponent = DaggerPresenterComponent.builder()
                 .restModule(new RestModule(this))
                 .utilsModule(new UtilsModule(this))
