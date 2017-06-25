@@ -10,6 +10,7 @@ import ru.techmas.androidtemplate.di.components.ViewComponent;
 import ru.techmas.androidtemplate.di.modules.RestModule;
 import ru.techmas.androidtemplate.di.modules.UtilsModule;
 import ru.techmas.androidtemplate.di.modules.ViewModule;
+import ru.techmas.androidtemplate.utils.Injector;
 import timber.log.Timber;
 
 
@@ -20,8 +21,6 @@ import timber.log.Timber;
 
 public class App extends Application {
 
-    private static PresenterComponent presenterComponent;
-    private static ViewComponent viewComponent;
 
     @Override
     public void onCreate() {
@@ -33,25 +32,20 @@ public class App extends Application {
     }
 
     private void setupDagger2() {
-        presenterComponent = DaggerPresenterComponent.builder()
+        PresenterComponent presenterComponent = DaggerPresenterComponent.builder()
                 .restModule(new RestModule(this))
                 .utilsModule(new UtilsModule(this))
                 .build();
         presenterComponent.inject(this);
 
-        viewComponent = DaggerViewComponent.builder()
+        ViewComponent viewComponent = DaggerViewComponent.builder()
                 .viewModule(new ViewModule(this))
                 .build();
         viewComponent.inject(this);
+
+        Injector.setPresenterComponent(presenterComponent);
+        Injector.setViewComponent(viewComponent);
     }
 
-
-    public static PresenterComponent getPresenterComponent() {
-        return presenterComponent;
-    }
-
-    public static ViewComponent getViewComponent() {
-        return viewComponent;
-    }
 
 }

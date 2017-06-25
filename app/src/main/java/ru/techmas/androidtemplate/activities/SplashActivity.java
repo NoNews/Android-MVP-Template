@@ -9,10 +9,10 @@ import android.widget.TextView;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.arellomobile.mvp.presenter.ProvidePresenter;
 
-import ru.techmas.androidtemplate.App;
 import ru.techmas.androidtemplate.R;
 import ru.techmas.androidtemplate.interfaces.views.SplashView;
 import ru.techmas.androidtemplate.presenters.SplashPresenter;
+import ru.techmas.androidtemplate.utils.Injector;
 
 
 public class SplashActivity extends BaseActivity implements SplashView {
@@ -26,7 +26,7 @@ public class SplashActivity extends BaseActivity implements SplashView {
 
     @ProvidePresenter
     SplashPresenter provideSplashPresenter() {
-        return App.getPresenterComponent().getSplashPresenter();
+        return Injector.getPresenterComponent().getSplashPresenter();
     }
 
     private LinearLayout ltBackground;
@@ -39,22 +39,17 @@ public class SplashActivity extends BaseActivity implements SplashView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(LAYOUT);
-        bindViews();
-        setupListeners();
+        setupUI();
+        setupUX();
         getMvpDelegate().onAttach();
     }
 
-    private void setupListeners() {
+
+    @Override
+    public void setupUX() {
         btnRepeat.setOnClickListener(v -> splashPresenter.startNext());
     }
 
-
-    private void bindViews() {
-        ltBackground = bindView(R.id.ltBackground);
-        btnRepeat = bindView(R.id.btnRepeat);
-        tvSomethingWentWrong = bindView(R.id.tvSomethingWentWrong);
-        progressBar = bindView(R.id.progressBar);
-    }
 
     @Override
     public final void showErrorConnection(boolean show) {
@@ -65,4 +60,14 @@ public class SplashActivity extends BaseActivity implements SplashView {
             animationHelper.scaleIn(tvSomethingWentWrong);
         } else hideView(ltBackground);
     }
+
+
+    @Override
+    public void setupUI() {
+        ltBackground = bindView(R.id.ltBackground);
+        btnRepeat = bindView(R.id.btnRepeat);
+        tvSomethingWentWrong = bindView(R.id.tvSomethingWentWrong);
+        progressBar = bindView(R.id.progressBar);
+    }
+
 }

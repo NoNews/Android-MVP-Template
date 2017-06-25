@@ -1,18 +1,23 @@
 package ru.techmas.androidtemplate.activities;
 
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DimenRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 
 import javax.inject.Inject;
 
-import ru.techmas.androidtemplate.App;
 import ru.techmas.androidtemplate.R;
+import ru.techmas.androidtemplate.interfaces.utils_view.BaseLifeCycle;
 import ru.techmas.androidtemplate.interfaces.utils_view.NavigatorActivityView;
 import ru.techmas.androidtemplate.utils.AnimationHelper;
+import ru.techmas.androidtemplate.utils.Injector;
 import ru.techmas.androidtemplate.utils.KeyboardHelper;
 import ru.techmas.androidtemplate.utils.Navigator;
 
@@ -21,7 +26,7 @@ import ru.techmas.androidtemplate.utils.Navigator;
  * You can contact me at: me@alexbykov.ru.
  */
 
-public abstract class BaseActivity extends MvpAppCompatActivity implements NavigatorActivityView {
+public abstract class BaseActivity extends MvpAppCompatActivity implements NavigatorActivityView, BaseLifeCycle {
 
     protected final String TAG = getClass().getSimpleName();
 
@@ -32,18 +37,13 @@ public abstract class BaseActivity extends MvpAppCompatActivity implements Navig
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        App.getViewComponent().inject(this);
+        Injector.getViewComponent().inject(this);
 //        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
 
     protected final void hideKeyboard() {
         KeyboardHelper.hide(this);
-    }
-
-    @SuppressWarnings("unchecked")
-    protected final <T extends View> T bindView(@IdRes int id) {
-        return (T) findViewById(id);
     }
 
     protected final void hideView(@NonNull View view) {
@@ -68,11 +68,33 @@ public abstract class BaseActivity extends MvpAppCompatActivity implements Navig
         Navigator.startActivityForResult(this, activityClass, requestCode);
     }
 
-
     @Override
     public final void finish() {
         super.finish();
         overridePendingTransition(R.anim.no_animation, R.anim.no_animation);
+    }
+
+
+    @SuppressWarnings("unchecked")
+    protected final <T extends View> T bindView(@IdRes int id) {
+        return (T) findViewById(id);
+    }
+
+
+    @SuppressWarnings("unchecked")
+    protected final int bindColor(@ColorRes int id) {
+        return ContextCompat.getColor(this, id);
+    }
+
+
+    @SuppressWarnings("unchecked")
+    protected final String bindString(@StringRes int id) {
+        return getString(id);
+    }
+
+    @SuppressWarnings("unchecked")
+    protected final int bindDimen(@DimenRes int id) {
+        return (int) getResources().getDimension(id);
     }
 
 }
