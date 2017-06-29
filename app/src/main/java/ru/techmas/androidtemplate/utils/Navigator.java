@@ -31,8 +31,12 @@ public class Navigator {
     //@formatter:on
 
     public static void startActivity(Activity applicationContext,
-                                     Class<? extends BaseActivity> activityClass) {
+                                     Class<? extends BaseActivity> activityClass,
+                                     boolean clearBackStack) {
         Intent intent = new Intent(applicationContext, activityClass);
+        if (clearBackStack) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        }
         applicationContext.startActivity(intent);
         applicationContext.overridePendingTransition(R.anim.no_animation, R.anim.no_animation);
     }
