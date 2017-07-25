@@ -12,8 +12,10 @@ import android.view.animation.Animation;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 
+import ru.techmas.androidtemplate.App;
+import ru.techmas.androidtemplate.BuildConfig;
 import ru.techmas.androidtemplate.activities.BaseActivity;
-import ru.techmas.androidtemplate.interfaces.utils_view.BaseLifeCycle;
+import ru.techmas.androidtemplate.interfaces.utils_view.BaseSetup;
 import ru.techmas.androidtemplate.interfaces.utils_view.NavigatorActivityView;
 import ru.techmas.androidtemplate.utils.Injector;
 import ru.techmas.androidtemplate.utils.KeyboardHelper;
@@ -24,11 +26,10 @@ import ru.techmas.androidtemplate.utils.Navigator;
  * You can contact me at: me@alexbykov.ru.
  */
 
-public abstract class BaseFragment extends MvpAppCompatFragment implements NavigatorActivityView, BaseLifeCycle {
+public abstract class BaseFragment extends MvpAppCompatFragment implements NavigatorActivityView, BaseSetup {
 
     protected final String TAG = getClass().getSimpleName();
     protected View rootView;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public abstract class BaseFragment extends MvpAppCompatFragment implements Navig
 
     @Override
     public final void startActivity(Class<? extends BaseActivity> activityClass) {
-        Navigator.startActivity(getActivity(), activityClass);
+        Navigator.startActivity(getActivity(), activityClass, false);
     }
 
     @Override
@@ -62,9 +63,6 @@ public abstract class BaseFragment extends MvpAppCompatFragment implements Navig
         }
     }
 
-
-
-
     @Override
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
         if (Navigator.isFragmentAnimationDisabled) {
@@ -75,7 +73,6 @@ public abstract class BaseFragment extends MvpAppCompatFragment implements Navig
         }
         return super.onCreateAnimation(transit, enter, nextAnim);
     }
-
 
     @SuppressWarnings("unchecked")
     protected final <T extends View> T bindView(@IdRes int id) {
@@ -93,12 +90,16 @@ public abstract class BaseFragment extends MvpAppCompatFragment implements Navig
         return ContextCompat.getColor(getContext(), id);
     }
 
-
     @SuppressWarnings("unchecked")
     protected final String bindString(@StringRes int id) {
         return getString(id);
     }
 
-
-
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (BuildConfig.DEBUG) {
+            App.getRefWatcher(getActivity()).watch(this);
+        }
+    }
 }

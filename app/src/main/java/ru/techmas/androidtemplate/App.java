@@ -2,6 +2,10 @@ package ru.techmas.androidtemplate;
 
 
 import android.app.Application;
+import android.content.Context;
+
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 
 import ru.techmas.androidtemplate.di.components.DaggerPresenterComponent;
 import ru.techmas.androidtemplate.di.components.DaggerViewComponent;
@@ -21,14 +25,27 @@ import timber.log.Timber;
 
 public class App extends Application {
 
+    private RefWatcher refWatcher;
 
     @Override
     public void onCreate() {
         super.onCreate();
         setupDagger2();
         if (BuildConfig.DEBUG) {
-            Timber.plant(new Timber.DebugTree());
+            setupTimber();
+            setupLeakCanary();
         }
+    }
+
+    private void setupLeakCanary() {
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        refWatcher = LeakCanary.install(this);
+    }
+
+    private void setupTimber() {
+        Timber.plant(new Timber.DebugTree());
     }
 
     private void setupDagger2() {
@@ -47,5 +64,8 @@ public class App extends Application {
         Injector.setViewComponent(viewComponent);
     }
 
-
+    public static RefWatcher getRefWatcher(Context context) {
+        App app = (App) context.getApplicationContext();
+        return app.refWatcher;
+    }
 }

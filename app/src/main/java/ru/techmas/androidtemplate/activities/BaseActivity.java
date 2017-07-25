@@ -14,7 +14,7 @@ import com.arellomobile.mvp.MvpAppCompatActivity;
 import javax.inject.Inject;
 
 import ru.techmas.androidtemplate.R;
-import ru.techmas.androidtemplate.interfaces.utils_view.BaseLifeCycle;
+import ru.techmas.androidtemplate.interfaces.utils_view.BaseSetup;
 import ru.techmas.androidtemplate.interfaces.utils_view.NavigatorActivityView;
 import ru.techmas.androidtemplate.utils.AnimationHelper;
 import ru.techmas.androidtemplate.utils.Injector;
@@ -26,7 +26,7 @@ import ru.techmas.androidtemplate.utils.Navigator;
  * You can contact me at: me@alexbykov.ru.
  */
 
-public abstract class BaseActivity extends MvpAppCompatActivity implements NavigatorActivityView, BaseLifeCycle {
+public abstract class BaseActivity extends MvpAppCompatActivity implements NavigatorActivityView, BaseSetup {
 
     protected final String TAG = getClass().getSimpleName();
 
@@ -60,7 +60,7 @@ public abstract class BaseActivity extends MvpAppCompatActivity implements Navig
 
     @Override
     public final void startActivity(Class<? extends BaseActivity> activityClass) {
-        Navigator.startActivity(this, activityClass);
+        Navigator.startActivity(this, activityClass, false);
     }
 
     @Override

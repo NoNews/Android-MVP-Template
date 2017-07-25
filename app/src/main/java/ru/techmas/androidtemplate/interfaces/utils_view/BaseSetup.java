@@ -8,7 +8,7 @@ package ru.techmas.androidtemplate.interfaces.utils_view;
  * @author Alex Bykov
  *         You can contact me at me@alexbykov.ru
  */
-public interface BaseLifeCycle {
+public interface BaseSetup {
 
       void setupUI();
 
