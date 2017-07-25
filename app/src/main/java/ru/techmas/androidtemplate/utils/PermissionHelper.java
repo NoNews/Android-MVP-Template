@@ -28,7 +28,7 @@ public class PermissionHelper {
 
 
     public static void requestLocationPermission(Activity activity) {
-        if (weDontHaveLocationPermission(activity)) locationRequest(activity);
+        if (isLocationPermissionEnabled(activity)) locationRequest(activity);
     }
 
     private static void locationRequest(Activity activity) {
