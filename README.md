@@ -1,5 +1,6 @@
-# Template for  quickly initialize a new project
+# @Deprecated
 
+# Template for  quickly initialize a new project
 
 ## Libraries
 
